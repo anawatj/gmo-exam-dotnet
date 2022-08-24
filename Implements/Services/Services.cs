@@ -79,6 +79,7 @@ namespace Implements.Services
                 var dtos = userQuestions.Select(t =>
                 {
                     UserQuestionDto dto = mapper.Map<UserQuestion, UserQuestionDto>(t);
+                    dto.UserName = t.User.UserName;
                     IList<UserQuestionAnswerDto> answers = mapper.Map<IList<UserQuestionAnswer>, IList<UserQuestionAnswerDto>>(t.UserQuestionAnswers);
                     dto.Answers = answers;
                     return dto;
